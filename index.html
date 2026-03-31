@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Расписание школы №3</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📅 Расписание уроков</h1>
+            <p class="subtitle">МАОУ «СОШ №3» — всегда актуальная информация</p>
+        </header>
+
+        <div class="controls">
+            <div class="class-selector">
+                <label for="classSelect">Класс:</label>
+                <select id="classSelect">
+                    <option value="5А">5А</option>
+                    <option value="5Б">5Б</option>
+                    <option value="6А">6А</option>
+                    <option value="6Б">6Б</option>
+                    <option value="7А">7А</option>
+                    <option value="7Б">7Б</option>
+                    <option value="8А">8А</option>
+                    <option value="8Б">8Б</option>
+                    <option value="9А">9А</option>
+                    <option value="9Б">9Б</option>
+                    <option value="10М">10М</option>
+                    <option value="11М">11М</option>
+                </select>
+            </div>
+            <div class="weekday-selector">
+                <label for="weekdaySelect">День недели:</label>
+                <select id="weekdaySelect">
+                    <option value="monday">Понедельник</option>
+                    <option value="tuesday">Вторник</option>
+                    <option value="wednesday">Среда</option>
+                    <option value="thursday">Четверг</option>
+                    <option value="friday">Пятница</option>
+                    <option value="saturday">Суббота</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="schedule-wrapper">
+            <div id="scheduleTable" class="schedule-table">
+                <!-- Здесь будет таблица, которую сформирует JavaScript -->
+                <div class="loading">Загрузка расписания...</div>
+            </div>
+        </div>
+
+        <div class="info-footer">
+            <p>📌 Расписание обновляется ежедневно. По вопросам обращаться в учебную часть.</p>
+            <p>🕒 Расписание звонков: 1 урок 8:30–9:15 | 2 урок 9:25–10:10 | 3 урок 10:20–11:05 | 4 урок 11:15–12:00 | 5 урок 12:10–12:55 | 6 урок 13:05–13:50</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

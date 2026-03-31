@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f7fc;
+    color: #1e2a3e;
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    padding: 24px 28px 36px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #eef2f6;
+    padding-bottom: 18px;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #1e4a6b, #2b6a8f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+}
+
+.subtitle {
+    color: #5c6f87;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 32px;
+    background: #f8fafd;
+    padding: 16px 20px;
+    border-radius: 60px;
+}
+
+.class-selector, .weekday-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    padding: 6px 18px;
+    border-radius: 40px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+label {
+    font-weight: 600;
+    color: #1e4a6b;
+}
+
+select {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 30px;
+    border: 1px solid #cfdfed;
+    background: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+select:hover {
+    border-color: #2b6a8f;
+}
+
+.schedule-wrapper {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.schedule-table {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+}
+
+/* Стили таблицы */
+.schedule-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.schedule-table th {
+    background: #1e4a6b;
+    color: white;
+    font-weight: 600;
+    padding: 14px 10px;
+    border: 1px solid #2c5c7c;
+    text-align: center;
+}
+
+.schedule-table td {
+    border: 1px solid #e2e8f0;
+    padding: 12px 10px;
+    vertical-align: top;
+    background-color: #ffffff;
+}
+
+.schedule-table tr:nth-child(even) td {
+    background-color: #fafcff;
+}
+
+/* Информация об уроке */
+.lesson-name {
+    font-weight: 700;
+    color: #0b2b3f;
+}
+
+.lesson-room {
+    font-size: 0.8rem;
+    color: #4b6b8a;
+    display: block;
+    margin-top: 4px;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #5c6f87;
+    font-style: italic;
+}
+
+.info-footer {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #e2edf5;
+    font-size: 0.8rem;
+    color: #5b6f89;
+    text-align: center;
+}
+
+.info-footer p {
+    margin: 6px 0;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 700px) {
+    .container {
+        padding: 16px;
+    }
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 28px;
+        background: transparent;
+        padding: 0;
+        gap: 12px;
+    }
+    .class-selector, .weekday-selector {
+        justify-content: space-between;
+        background: #f8fafd;
+        padding: 10px 16px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .schedule-table th, .schedule-table td {
+        padding: 8px 6px;
+        font-size: 0.85rem;
+    }
+    .info-footer {
+        font-size: 0.7rem;
+    }
+}
