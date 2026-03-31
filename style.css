@@ -1,189 +1,117 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background: #f4f7fc;
-    color: #1e2a3e;
-    padding: 20px;
-    line-height: 1.5;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 28px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-    padding: 24px 28px 36px;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 28px;
-    border-bottom: 2px solid #eef2f6;
-    padding-bottom: 18px;
-}
-
-h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
+/* Кнопка расписания звонков */
+.schedule-btn {
     background: linear-gradient(135deg, #1e4a6b, #2b6a8f);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: -0.3px;
-}
-
-.subtitle {
-    color: #5c6f87;
-    font-weight: 500;
-    margin-top: 6px;
-}
-
-.controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 32px;
-    background: #f8fafd;
-    padding: 16px 20px;
-    border-radius: 60px;
-}
-
-.class-selector, .weekday-selector {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: white;
-    padding: 6px 18px;
-    border-radius: 40px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-label {
+    border: none;
+    color: white;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
-    color: #1e4a6b;
+    padding: 8px 24px;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: 0.2s;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-select {
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 8px 12px;
-    border-radius: 30px;
-    border: 1px solid #cfdfed;
-    background: white;
+.schedule-btn:hover {
+    transform: translateY(-2px);
+    background: #0f3b56;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 28px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
-    font-weight: 500;
     transition: 0.2s;
 }
 
-select:hover {
-    border-color: #2b6a8f;
+.close:hover {
+    color: #1e4a6b;
 }
 
-.schedule-wrapper {
-    overflow-x: auto;
+.modal-tabs {
+    display: flex;
+    gap: 10px;
     margin: 20px 0;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 10px;
 }
 
-.schedule-table {
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.2s;
+    color: #5c6f87;
 }
 
-/* Стили таблицы */
-.schedule-table table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-.schedule-table th {
+.tab-btn.active {
     background: #1e4a6b;
     color: white;
+}
+
+.schedule-table-modal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.schedule-table-modal th, .schedule-table-modal td {
+    border: 1px solid #cfdfed;
+    padding: 10px;
+    text-align: center;
+}
+
+.schedule-table-modal th {
+    background: #eef2f6;
     font-weight: 600;
-    padding: 14px 10px;
-    border: 1px solid #2c5c7c;
-    text-align: center;
 }
 
-.schedule-table td {
-    border: 1px solid #e2e8f0;
-    padding: 12px 10px;
-    vertical-align: top;
-    background-color: #ffffff;
-}
-
-.schedule-table tr:nth-child(even) td {
-    background-color: #fafcff;
-}
-
-/* Информация об уроке */
-.lesson-name {
-    font-weight: 700;
-    color: #0b2b3f;
-}
-
-.lesson-room {
-    font-size: 0.8rem;
-    color: #4b6b8a;
-    display: block;
-    margin-top: 4px;
-}
-
-.loading {
-    text-align: center;
-    padding: 40px;
-    color: #5c6f87;
-    font-style: italic;
-}
-
-.info-footer {
-    margin-top: 32px;
-    padding-top: 20px;
-    border-top: 1px solid #e2edf5;
-    font-size: 0.8rem;
-    color: #5b6f89;
-    text-align: center;
-}
-
-.info-footer p {
-    margin: 6px 0;
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 700px) {
-    .container {
-        padding: 16px;
+@media (max-width: 600px) {
+    .modal-content {
+        padding: 15px;
     }
-    .controls {
-        flex-direction: column;
-        align-items: stretch;
-        border-radius: 28px;
-        background: transparent;
-        padding: 0;
-        gap: 12px;
-    }
-    .class-selector, .weekday-selector {
-        justify-content: space-between;
-        background: #f8fafd;
-        padding: 10px 16px;
-    }
-    h1 {
-        font-size: 1.8rem;
-    }
-    .schedule-table th, .schedule-table td {
-        padding: 8px 6px;
-        font-size: 0.85rem;
-    }
-    .info-footer {
-        font-size: 0.7rem;
+    .schedule-table-modal th, .schedule-table-modal td {
+        padding: 6px;
+        font-size: 0.8rem;
     }
 }

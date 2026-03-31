@@ -47,14 +47,29 @@
 
         <div class="schedule-wrapper">
             <div id="scheduleTable" class="schedule-table">
-                <!-- Здесь будет таблица, которую сформирует JavaScript -->
                 <div class="loading">Загрузка расписания...</div>
             </div>
         </div>
 
         <div class="info-footer">
             <p>📌 Расписание обновляется ежедневно. По вопросам обращаться в учебную часть.</p>
-            <p>🕒 Расписание звонков: 1 урок 8:30–9:15 | 2 урок 9:25–10:10 | 3 урок 10:20–11:05 | 4 урок 11:15–12:00 | 5 урок 12:10–12:55 | 6 урок 13:05–13:50</p>
+            <button id="showScheduleBtn" class="schedule-btn">🕒 Расписание звонков</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно с расписанием звонков -->
+    <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Расписание звонков на 2025-2026 учебный год</h2>
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-day="monday">Понедельник</button>
+                <button class="tab-btn" data-day="tue-fri">Вторник – Пятница</button>
+                <button class="tab-btn" data-day="saturday">Суббота</button>
+            </div>
+            <div id="scheduleTableModal" class="schedule-table-modal">
+                <!-- Таблицы будут вставлены скриптом -->
+            </div>
         </div>
     </div>
 
